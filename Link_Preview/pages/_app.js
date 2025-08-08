@@ -5,7 +5,7 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Danh sách trái cây 🍎🍌🍍</title>
+        <title>Danh sách trái cây của Anh Thịnh 🍎🍌🍍</title>
         <meta
           name="description"
           content="Xem danh sách các loại trái cây ngon và bổ dưỡng."
