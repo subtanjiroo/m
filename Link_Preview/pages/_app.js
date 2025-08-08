@@ -12,23 +12,23 @@ function MyApp({ Component, pageProps }) {
         />
 
         {/* Open Graph */}
-        <meta property="og:title" content="Danh sách trái cây 🍎🍌🍍" />
+        <meta property="og:title" content="Danh sách trái cây Nhà Anh Thịnh 🍎🍌🍍" />
         <meta
           property="og:description"
           content="Xem danh sách các loại trái cây ngon và bổ dưỡng."
         />
-        <meta property="og:image" content="https://example.com/fruit-preview.jpg" />
-        <meta property="og:url" content="https://example.com" />
+        <meta property="og:image" content="https://minhdeptrai.leandix.com/tulalit.jpg" />
+        <meta property="og:url" content="https://minhdeptrai.leandix.com/" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Danh sách trái cây 🍎🍌🍍" />
+        <meta name="twitter:title" content="Danh sách trái cây Nhà Anh Thịnh 🍎🍌🍍" />
         <meta
           name="twitter:description"
           content="Xem danh sách các loại trái cây ngon và bổ dưỡng."
         />
-        <meta name="twitter:image" content="https://example.com/fruit-preview.jpg" />
+        <meta name="twitter:image" content="https://minhdeptrai.leandix.com/tulalitjpg" />
       </Head>
 
       <Component {...pageProps} />
