@@ -1,0 +1,101 @@
+body {
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
+
+h1 {
+  font-size: 1.75em;
+  font-weight: 700;
+  margin: 0.67em 0;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 1.5em;
+  font-weight: 700;
+  margin: 0.83em 0;
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: 1.25em;
+  font-weight: 700;
+  margin: 1em 0;
+  line-height: 1.2;
+}
+
+h4 {
+  font-size: 1.1em;
+  font-weight: 700;
+  margin: 1.33em 0;
+  line-height: 1.25;
+}
+
+a {
+  color: #0066cc;
+  text-decoration: none;
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover,
+a:focus {
+  color: #004999;
+  text-decoration: none;
+}
+
+pre {
+  background-color: #2d2d2d;
+  color: #ccc;
+  padding: 1em;
+  border-radius: 5px;
+  overflow-x: auto;
+  font-family: 'JetBrain Mono', monospace;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+code {
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  color: #f8f8f2;
+  background-color: transparent;
+}
+
+/* C/C++ */
+code.language-c,
+code.language-cpp {
+  color: #f92672;
+  font-weight: normal;
+}
+
+/* Python */
+code.language-python {
+  color: #66d9ef;
+  font-weight: normal;
+}
+
+/* JavaScript */
+code.language-javascript {
+  color: #f8f8f2;
+  background-color: #f1fa8c;
+  font-weight: normal;
+}
+
+/* HTML */
+code.language-html {
+  color: #e06c75;
+  font-weight: normal;
+}
+
+/* CSS */
+code.language-css {
+  color: #61dafb;
+  font-weight: normal;
+}
+
+/* Định dạng chung cho các ngôn ngữ còn lại */
+code[class^="language-"]:not(.language-c):not(.language-cpp):not(.language-python):not(.language-javascript):not(.language-html):not(.language-css) {
+  color: #a6e22e;
+  font-style: italic;
+}
