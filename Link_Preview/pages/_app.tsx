@@ -1,10 +1,12 @@
 // pages/_app.tsx
 import type { AppProps } from "next/app";
 import Head from "next/head";
+import Script from "next/script"; // <-- Import Script
 import '../src/sections/ChatBox/index.css'
 import '../styles/globals.css'; // Import global styles
+
 const siteMeta = {
-  title: "Danh sách trái câyzxczxczxc  🍎🍌🍍",
+  title: "Danh sách trái câyzxczxczxc 🍎🍌🍍",
   description: "Xem danh sách các loại trái cây ngon và bổ dưỡng.",
   url: "https://minhdeptrai.leandix.com",
   image: "/LEANDIX.png",
@@ -28,8 +30,9 @@ const twitterMeta: { name: string; content: string }[] = [
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
+      <Script src="https://cdn.tailwindcss.com" strategy="beforeInteractive" />
+
       <Head>
-        <script src="https://cdn.tailwindcss.com"></script>
         <title>{siteMeta.title}</title>
         <meta name="description" content={siteMeta.description} />
 
