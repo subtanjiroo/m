@@ -1,0 +1,41 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+  branches:
+    include:
+      - main # Replace with your branch name
+
+
+pool:
+  name: Default
+  demands:
+    - agent.name -equals platform.leandix.com # Replace with your agent name
+
+variables:
+  srcDir: '$(System.DefaultWorkingDirectory)'
+  appDir: '/app/NextJS' # Replace with your app directory
+steps:
+- script: |
+    sudo rsync -a --delete $(srcDir)/ $(appDir)/
+  displayName: 'Sync source to app directory (remove old files)'
+  
+
+- script: |
+    sudo docker compose down
+  displayName: 'Stop running Docker containers'
+  workingDirectory: $(appDir)
+
+# - script: |
+#     sudo docker compose build task_consumer --pull --no-cache
+#   displayName: 'Build Docker image'
+#   workingDirectory: $(appDir)  
+
+- script: |
+    sudo docker compose up -d
+  displayName: 'Run Docker Compose services'
+  workingDirectory: $(appDir)
+
+

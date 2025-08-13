@@ -6,9 +6,10 @@ services:
       context: .
       dockerfile: Dockerfile
     ports:
-      - "3000:3000"
+      - "4000:4000"
     environment:
       - NODE_ENV=production
+      - PORT=4000
     restart: unless-stopped
     volumes:
       - /app/node_modules

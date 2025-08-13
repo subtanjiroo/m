@@ -75,8 +75,8 @@ export async function getServerSideProps(context) {
   const { name, shareId } = params;
 
   const host = req.headers.host;
-  const baseUrl = `http://link_preview-nextjs-1:3000`;
-  // const baseUrl = `http://localhost:3000`;
+  const baseUrl = `http://link_preview-nextjs-1:4000`;
+  // const baseUrl = `http://localhost:4000`;
   console.log("Base URL:", baseUrl);
   const apiUrl = `${baseUrl}/api/chat/${shareId}`;
   const res = await fetch(apiUrl);
