@@ -81,7 +81,7 @@ export async function getServerSideProps({ params }) {
     if (!res.ok) throw new Error("Not found");
 
     const data = await res.json();
-
+    console.log("resresres3: ",data)
     return {
       props: {
         name,
