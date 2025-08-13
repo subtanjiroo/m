@@ -70,18 +70,26 @@ export default function SharedChatPage({
 }
 
 // Server-Side Rendering
-export async function getServerSideProps(context) {
-  const { req, params } = context;
+export async function getServerSideProps({ params }) {
   const { name, shareId } = params;
 
-  const host = req.headers.host;
-  const baseUrl = `http://link_preview-nextjs-1:4000`;
-  // const baseUrl = `http://localhost:4000`;
-  console.log("Base URL:", baseUrl);
-  const apiUrl = `${baseUrl}/api/chat/${shareId}`;
-  const res = await fetch(apiUrl);
+  try {
+    // Server-side fetch, không có header
+    console.log("resresres1")
+    const res = await fetch(`https://platform.leandix.com/api/chat/history/share/${shareId}`);
+    console.log("resresres2: ",res)
+    if (!res.ok) throw new Error("Not found");
 
-  if (!res.ok) {
+    const data = await res.json();
+
+    return {
+      props: {
+        name,
+        shareId,
+        messages: data.messages || [],
+      },
+    };
+  } catch (error) {
     return {
       redirect: {
         destination: "/shared/notfound",
@@ -89,14 +97,5 @@ export async function getServerSideProps(context) {
       },
     };
   }
-
-  const data = await res.json();
-
-  return {
-    props: {
-      name,
-      shareId,
-      messages: data.messages || [],
-    },
-  };
 }
+

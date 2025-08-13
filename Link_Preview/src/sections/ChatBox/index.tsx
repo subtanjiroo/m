@@ -132,8 +132,8 @@ const ChatBox: React.FC<ChatBoxProps> = ({
     setMessages([])
     const loadHistory = async () => {
       if (chatHistoryID === null || chatHistoryID === 0) return
-
-      const url = `/api/chat/${chatHistoryID}`;
+      const url = `https://platform.leandix.com/api/chat/history/share/${chatHistoryID}`;
+      console.log("urlurlurl:", url)
       try {
         const res = await fetch(url,
           {
@@ -141,6 +141,7 @@ const ChatBox: React.FC<ChatBoxProps> = ({
             credentials: "include",
           }
         )
+        console.log("responseeeeeeeee:", res)
         const resJson = await res.json()
         if (!res.ok) {
           throw Error(resJson.message || JSON.stringify(resJson))
