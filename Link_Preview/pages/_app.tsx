@@ -6,8 +6,8 @@ import '../styles/globals.css'; // Import global styles
 const siteMeta = {
   title: "Danh sách trái câyzxczxczxc  🍎🍌🍍",
   description: "Xem danh sách các loại trái cây ngon và bổ dưỡng.",
-  url: "https://example.com",
-  image: "https://example.com/fruit-preview.jpg",
+  url: "https://minhdeptrai.leandix.com",
+  image: "/LEANDIX.png",
 };
 
 const openGraphMeta: { property: string; content: string }[] = [

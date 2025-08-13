@@ -43,7 +43,7 @@ export default function SharedChatPage({
           <div className="flex justify-items-end mx-auto px-6 py-4">
             <Button
               className="bg-gradient-to-r from-blue-500 to-purple-600 hover:from-blue-600 hover:to-purple-700 text-white border-0 transition-all duration-300"
-              onClick={() => router.push("/")}
+              onClick={() => router.push("https://platform.leandix.com/reasoning")}
             >
               Về trang chủ
             </Button>
