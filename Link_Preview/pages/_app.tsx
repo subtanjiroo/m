@@ -6,7 +6,7 @@ import '../styles/globals.css'; // Import global styles
 const siteMeta = {
   title: "Danh sách trái câyzxczxczxc  🍎🍌🍍",
   description: "Xem danh sách các loại trái cây ngon và bổ dưỡng.",
-  url: "https://minhdeptrai.leandix.com",
+  url: "https://platform.leandix.com",
   image: "/LEANDIX.png",
 };
 

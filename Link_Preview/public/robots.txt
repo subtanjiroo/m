@@ -3,4 +3,4 @@ Disallow: /admin/
 Disallow: /login/
 Allow: /
 
-Sitemap: https://minhdeptrai.leandix.com/sitemap.xml
+Sitemap: https://platform.leandix.com/sitemap.xml
