@@ -1,5 +1,4 @@
-export const API_DOMAIN =
-  process.env.NEXT_PUBLIC_API_DOMAIN || "https://platform.leandix.com";
+export const API_DOMAIN = process.env.NEXT_PUBLIC_API_DOMAIN || "https://platform.leandix.com";
 
 export const API_ENDPOINTS = {
   	LOGIN: `${API_DOMAIN}/api/authentication/login`,

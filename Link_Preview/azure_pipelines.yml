@@ -6,7 +6,7 @@
 trigger:
   branches:
     include:
-      - main # Replace with your branch name
+      - master # Replace with your branch name
 
 
 pool:
@@ -28,10 +28,10 @@ steps:
   displayName: 'Stop running Docker containers'
   workingDirectory: $(appDir)
 
-# - script: |
-#     sudo docker compose build task_consumer --pull --no-cache
-#   displayName: 'Build Docker image'
-#   workingDirectory: $(appDir)  
+- script: |
+    sudo docker compose build --pull --no-cache
+  displayName: 'Build Docker image'
+  workingDirectory: $(appDir)  
 
 - script: |
     sudo docker compose up -d

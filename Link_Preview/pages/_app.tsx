@@ -1,8 +1,8 @@
 // pages/_app.tsx
 import type { AppProps } from "next/app";
 import Head from "next/head";
-import '../src/sections/ChatBox/index.css'
-import '../styles/globals.css'; // Import global styles
+import '../src/sections/ChatBox/index.css';
+import '../styles/globals.css';
 const siteMeta = {
   title: "Danh sách trái câyzxczxczxc  🍎🍌🍍",
   description: "Xem danh sách các loại trái cây ngon và bổ dưỡng.",
@@ -32,7 +32,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <script src="https://cdn.tailwindcss.com"></script>
         <title>{siteMeta.title}</title>
         <meta name="description" content={siteMeta.description} />
-
         {/* Open Graph */}
         {openGraphMeta.map(({ property, content }) => (
           <meta key={property} property={property} content={content} />
@@ -43,7 +42,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
           <meta key={name} name={name} content={content} />
         ))}
       </Head>
-
+      <div id="preloader">
+        <img src="/gifloader.gif" alt="preloader"/>
+      </div>
       <Component {...pageProps} />
     </>
   );

@@ -129,38 +129,42 @@ const ChatBox: React.FC<ChatBoxProps> = ({
 
   // Tải lịch sử chat khi chatHistoryID thay đổi
   useEffect(() => {
-    setMessages([])
-    const loadHistory = async () => {
-      if (chatHistoryID === null || chatHistoryID === 0) return
+    if (readOnly) {
+      // Nếu readOnly, dùng trực tiếp initialMessages, không fetch
+      setMessages(initialMessages);
+      return;
+    }
 
-      const url = `/api/chat/${chatHistoryID}`;
+    setMessages([]);
+    const loadHistory = async () => {
+      if (chatHistoryID === null || chatHistoryID === 0) return;
+
+      const url = `${API_ENDPOINTS.GET_MESSAGE}${chatHistoryID}`;
       try {
-        const res = await fetch(url,
-          {
-            method: "GET",
-            credentials: "include",
-          }
-        )
-        const resJson = await res.json()
+        const res = await fetch(url, {
+          method: "GET",
+          credentials: "include",
+        });
+        const resJson = await res.json();
         if (!res.ok) {
-          throw Error(resJson.message || JSON.stringify(resJson))
+          throw Error(resJson.message || JSON.stringify(resJson));
         }
-        const raw = resJson.data?.chat_messages || []
+        const raw = resJson.data?.chat_messages || [];
         const formatted: Message[] = raw.map((m: any, idx: number) => ({
           id: m.id ?? Date.now() + idx,
           content: m.message,
           type: m.is_machine ? "bot" : "user",
           model: m.model || "",
-        }))
-        setMessages(formatted)
+        }));
+        setMessages(formatted);
       } catch (err) {
-        console.error("Lỗi load chat history:", err)
+        console.error("Lỗi load chat history:", err);
       }
-    }
-    
-    loadHistory()
+    };
 
-  }, [chatHistoryID, notify])
+    loadHistory();
+  }, [chatHistoryID, readOnly, initialMessages]);
+
 
   // Hàm gửi tin nhắn
   const sendMessage = async (e: React.FormEvent) => {
@@ -237,11 +241,11 @@ const ChatBox: React.FC<ChatBoxProps> = ({
 
       {/* Content */}
       <div ref={chatContentRef} className="flex-1 overflow-y-auto p-4 space-y-4 bg-slate-900">
-        {messages.map((msg) => {
+        {messages.map((msg,index) => {
           const key = msg.model as ModelKey
           return (
             <div
-              key={msg.id}
+              key={index}
               className={`flex ${
                 msg.type === "user" ? "justify-end" : "justify-start flex-col"
               }`}
