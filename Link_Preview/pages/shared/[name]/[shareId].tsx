@@ -4,7 +4,8 @@ import MarkdownRenderer from "@/tools/RenderMarkdown";
 import type { Message } from "@/types";
 import { useRouter } from "next/router";
 import { useEffect, useRef, useState } from "react"
-import React from "react"; // thêm dòng này
+import React from "react";
+import removeMarkdown from "remove-markdown";
 const modelLabels = {
   gpt: "OpenAI",
   deepseek: "DeepSeek",
@@ -19,7 +20,15 @@ type ModelKey = keyof typeof modelLabels;
 export default function SharedChatPage({ name, shareId, messages }: { name: string; shareId: string; messages: Message[] }) {
   const router = useRouter();
   const bottomRef = React.useRef<HTMLDivElement>(null);
+  // Lọc ra các message bot
+  const botMessages = messages.filter(m => m.type === "bot");
+  const botSecondMsg = botMessages[1]?.content || botMessages[0]?.content || "";
 
+  // Chuyển Markdown -> plain text
+  const plainText = removeMarkdown(botSecondMsg);
+
+  // Lấy 50 chữ đầu tiên
+  const shortDesc = plainText.split(/\s+/).slice(0, 30).join(" ") + "...";
   // Scroll xuống cuối khi render xong
   React.useEffect(() => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -44,10 +53,11 @@ export default function SharedChatPage({ name, shareId, messages }: { name: stri
   }, []);
   return (
     <>
+      
       <Head>
         <title>{name ? `Platform - ${name}` : "Leandix AI"}</title>
         <meta property="og:title" content={`Platform - ${name}` || "Leandix AI"} />
-        <meta property="og:description" content={`Chat shared by Leandix Platfrom`} />
+        <meta property="og:description" content={shortDesc} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITE_URL}/shared/${name}/${shareId}`} />
       </Head>
