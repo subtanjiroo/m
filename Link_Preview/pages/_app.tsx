@@ -4,19 +4,23 @@ import Head from "next/head";
 import '../src/sections/ChatBox/index.css';
 import '../styles/globals.css';
 const siteMeta = {
-  title: "Danh sách trái câyzxczxczxc  🍎🍌🍍",
-  description: "Xem danh sách các loại trái cây ngon và bổ dưỡng.",
+  title: "Leandix AI - Intelligent Chat Platform",
+  description: "Engage with AI-powered conversations and explore the future of communication.",
   url: "https://platform.leandix.com",
-  image: "/LEANDIX.png",
+  image: "/leandix.png",
+  // image: "https://platform.leandix.com/LEANDIX.png",
 };
 
 const openGraphMeta: { property: string; content: string }[] = [
   { property: "og:title", content: siteMeta.title },
   { property: "og:description", content: siteMeta.description },
   { property: "og:image", content: siteMeta.image },
+  { property: "og:image:width", content: "1200" },
+  { property: "og:image:height", content: "630" },
   { property: "og:url", content: siteMeta.url },
   { property: "og:type", content: "website" },
 ];
+
 
 const twitterMeta: { name: string; content: string }[] = [
   { name: "twitter:card", content: "summary_large_image" },
