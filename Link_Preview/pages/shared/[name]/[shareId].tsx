@@ -45,8 +45,8 @@ export default function SharedChatPage({ name, shareId, messages }: { name: stri
   return (
     <>
       <Head>
-        <title>{name ? `${name} - Shared Chat` : "Shared Chat"}</title>
-        <meta property="og:title" content={name || "Shared Chat"} />
+        <title>{name ? `Platform - ${name}` : "Leandix AI"}</title>
+        <meta property="og:title" content={`Platform - ${name}` || "Leandix AI"} />
         <meta property="og:description" content={`Chat shared by Leandix Platfrom`} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={`${process.env.NEXT_PUBLIC_SITE_URL}/shared/${name}/${shareId}`} />
