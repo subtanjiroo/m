@@ -7,7 +7,7 @@ const siteMeta = {
   title: "Leandix AI - Intelligent Chat Platform",
   description: "Engage with AI-powered conversations and explore the future of communication.",
   url: "https://platform.leandix.com",
-  image: "/leandix.png",
+  image: "https://minhdeptrai.leandix.com/leandix.png",
   // image: "https://platform.leandix.com/LEANDIX.png",
 };
 
